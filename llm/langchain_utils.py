@@ -34,7 +34,8 @@ def get_embeddings(provider: str = "huggingface"):
                 model_name=model_name, model_kwargs={"device": "cpu"}
             )
         except Exception as e:
-            raise ValueError(f"Failed to initialize HuggingFace embeddings: {e}")
+            st.error(f"Gemini initialization error: {e}")
+            raise
     else:
         raise ValueError(f"Unsupported provider for embeddings: {provider}")
 
